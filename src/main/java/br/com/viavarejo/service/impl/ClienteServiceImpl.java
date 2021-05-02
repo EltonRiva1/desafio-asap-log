@@ -15,7 +15,7 @@ import br.com.viavarejo.utils.MessageUtils;
 @Service
 public class ClienteServiceImpl implements ClienteService {
 	@Autowired
-	ClienteRepository clienteRepository;
+	private ClienteRepository clienteRepository;
 
 	@Override
 	public Cliente create(Cliente cliente) {

@@ -22,7 +22,7 @@ public class Cliente implements Serializable {
 	@NotNull
 	private String nome;
 	@NotNull
-	@CPF
+	@CPF(message = "CPF INVÁLIDO")
 	private String cpf;
 	@NotNull
 	private String cidade;

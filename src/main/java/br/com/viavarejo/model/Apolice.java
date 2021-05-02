@@ -9,6 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -22,8 +23,10 @@ public class Apolice implements Serializable {
 	@Id
 	private String numero;
 	@NotNull
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataInicioVigencia;
 	@NotNull
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataFimVigencia;
 	@NotNull
 	private String placaVeiculo;
