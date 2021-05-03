@@ -2,6 +2,7 @@ package br.com.viavarejo.service;
 
 import java.util.List;
 
+import br.com.viavarejo.dto.ApoliceDTO;
 import br.com.viavarejo.model.Apolice;
 
 public interface ApoliceService {
@@ -9,7 +10,7 @@ public interface ApoliceService {
 
 	public Apolice update(Apolice apolice, String numero);
 
-	public Apolice findByNumero(String numero);
+	public ApoliceDTO findByNumero(String numero);
 
 	public void delete(String numero);
 

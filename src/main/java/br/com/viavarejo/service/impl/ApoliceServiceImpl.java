@@ -5,8 +5,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import br.com.viavarejo.dto.ApoliceDTO;
 import br.com.viavarejo.enums.MessagesValidation;
 import br.com.viavarejo.error.ErrorException;
+import br.com.viavarejo.mapper.ApoliceMapper;
 import br.com.viavarejo.model.Apolice;
 import br.com.viavarejo.repository.ApoliceRepository;
 import br.com.viavarejo.repository.ClienteRepository;
@@ -40,10 +42,11 @@ public class ApoliceServiceImpl implements ApoliceService {
 	}
 
 	@Override
-	public Apolice findByNumero(String numero) {
+	public ApoliceDTO findByNumero(String numero) {
 		// TODO Auto-generated method stub
-		return this.apoliceRepository.findById(numero)
+		Apolice apolice = this.apoliceRepository.findById(numero)
 				.orElseThrow(() -> new ErrorException(MessageUtils.getMessage(MessagesValidation.REGISTER_NOT_FOUND)));
+		return ApoliceMapper.convertApoliceToDto(apolice);
 	}
 
 	@Override

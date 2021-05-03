@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.com.viavarejo.dto.ApoliceDTO;
 import br.com.viavarejo.model.Apolice;
 import br.com.viavarejo.service.impl.ApoliceServiceImpl;
 import io.swagger.annotations.Api;
@@ -49,11 +50,11 @@ public class ApoliceController {
 	public void delete(@PathVariable(required = true, name = "numero") String numero) {
 		this.apoliceServiceImpl.delete(numero);
 	}
-	
+
 	@ApiOperation(value = "Find by policy for your number")
 	@GetMapping(value = "/findByNumero/{numero}", produces = MediaType.APPLICATION_JSON_VALUE)
-	public ResponseEntity<Apolice> findByNumero(@PathVariable(required = true, name = "numero") String numero) {
-		return new ResponseEntity<Apolice>(this.apoliceServiceImpl.findByNumero(numero), HttpStatus.OK);
+	public ResponseEntity<ApoliceDTO> findByNumero(@PathVariable(required = true, name = "numero") String numero) {
+		return new ResponseEntity<ApoliceDTO>(this.apoliceServiceImpl.findByNumero(numero), HttpStatus.OK);
 	}
 
 	@ApiOperation(value = "List all policy")
